@@ -38,13 +38,13 @@ void Triangle::type_of_tr(){
     double ave = v[1];
     double min = v[0];
     // cout << "Min: " << min << "Max: " << max << endl;
-    if(sqrt(max)>sqrt(min)+sqrt(ave))
-        cout << "Треугольник тупоугольный"<< endl;
-    else if(sqrt(max)< sqrt(min)+sqrt(ave))
-        cout << "Треугольник остроугольный"<< endl;
-    else cout << "Треугольник прямоугольный";
-
-
+    if(max*max > min*min+ ave*ave)
+        cout << "Треугольник тупоугольный" << endl;
+    else if(max*max < min*min+ ave*ave)
+        cout << "Треугольник остроугольный" << endl;
+    else if(max*max == min*min+ ave*ave)
+        cout << "Треугольник прямоугольный" << endl;
+    else cout << "Задан несущетсвующий треугольник! " << endl;
 }
 
 void Triangle::value_of_angl(){
