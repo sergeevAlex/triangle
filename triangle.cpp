@@ -5,9 +5,9 @@
 #include <algorithm>
 #include <vector>
 #include <math.h>
+#define PI 3.14159265
 
 using namespace std;
-
 void Triangle::change_size(double koef){
     a = a*koef;
     b = b*koef;
@@ -15,13 +15,10 @@ void Triangle::change_size(double koef){
 }
 
 double Triangle::middle_lines(int i, int j){
-
     if(i==0 & j == 1)
         return (c/2);
-
     if(i==1 & j ==2 )
         return (a/2);
-
     if(i == 0 & j==2)
         return (b/2);
     else {
@@ -29,7 +26,6 @@ double Triangle::middle_lines(int i, int j){
         return 0;
     }
 }
-
 void Triangle::type_of_tr(){
     vector<double>v(3);
     v[0]=a;v[1]=b;v[2]=c;
@@ -37,7 +33,6 @@ void Triangle::type_of_tr(){
     double max = v[2];
     double ave = v[1];
     double min = v[0];
-    // cout << "Min: " << min << "Max: " << max << endl;
     if(max*max > min*min+ ave*ave)
         cout << "Треугольник тупоугольный" << endl;
     else if(max*max < min*min+ ave*ave)
@@ -49,6 +44,10 @@ void Triangle::type_of_tr(){
 
 void Triangle::value_of_angl(){
 
-
-
+    double Alpha = acos((a*a + b*b - c*c)/(2*a*b))*180.0/PI;
+    cout << "Угол между сторонами a&b равен: " << Alpha << endl;
+    double Betta = acos((a*a + c*c - b*b)/(2*a*c))*180.0/PI;
+    cout << "Угол между сторонами a&c равен: " << Betta << endl;
+    double Gamma = 180-(Alpha+Betta);
+    cout << "Угол между сторонами c&b равен: " << Gamma << endl;
 }

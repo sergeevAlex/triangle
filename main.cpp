@@ -40,6 +40,8 @@ int main() {
 //
     tr[1].type_of_tr();
 
+    tr[2].value_of_angl();
+
 
     return 0;
 }
