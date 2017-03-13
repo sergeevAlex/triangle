@@ -41,6 +41,8 @@ double Triangle::type_of_tr(){
 }
 vector<double> Triangle::value_of_angl(){
 
+
+    
     vector<double>res(3);
     if(((b+c-a) > 0) && ((a+c-b) > 0) && ((a+b-c) > 0))
     {
