@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "triangle.h"
+#include <vector>
 
 using namespace std;
 Triangle* create(int number){
@@ -35,12 +36,14 @@ int menu(){
 }
 
 int main() {
+    vector<double>reuslt(3);
     int number;
     int choise,newest;
     cout << "Введите кол-во треугольников: " << endl;
     cin >> number;
     int k ,j;
     double koef;
+    vector<double>reus(3);
     Triangle* tr = create(number);
     int work;
     fill_up(tr,number);
@@ -64,11 +67,18 @@ do {
             break;
         }
         case 3: {
-            tr[work].type_of_tr();
+            if(tr[work].type_of_tr() == 1){
+                cout << "Треугольник остроугольный" << endl;}
+            else if(tr[work].type_of_tr() == 2){
+                cout << "Треугольник тупоугольный" << endl;}
+            else if(tr[work].type_of_tr() == 3){cout << "Треугольник прямоугольный" <<endl;}
             break;
         }
         case 4: {
-            tr[work].value_of_angl();
+            reus = tr[work].value_of_angl();
+            cout << "Угол между сторонами a&b равен: " << reus[0] << endl;
+            cout << "Угол между сторонами a&c равен: " << reus[1] << endl;
+            cout << "Угол между сторонами b&c равен: " << reus[2] << endl;
             break;
         }
         case 6: {
@@ -83,11 +93,8 @@ do {
         }
         default: {
             cerr << "Неверный вариант! " << endl;
-
         }
     }
 }
     while(choise !=6);
-
-    return 0;
 }
